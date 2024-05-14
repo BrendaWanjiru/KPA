@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ Member.fullname }}
+{% endblock %}
+
+
+{% block content %}
+<h1>{{ Member.fullname }}</h1>
+  
+<p>Email: {{ Member.email }}</p>
+<p>Age: {{ Member.age }}</p>
+<p>Phone: {{ Member.phone }}</p>
+
+<p>Back to <a href="/members">Members</a></p>
+  
+{% endblock %}
