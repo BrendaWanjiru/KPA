@@ -1,17 +1,32 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Details about {{ Member.fullname }}
+  Details about {{ mymember.memberid }}
 {% endblock %}
 
 
 {% block content %}
-<h1>{{ Member.fullname }}</h1>
+<h1>{{ mymember.memberid }}</h1>
   
-<p>Email: {{ Member.email }}</p>
-<p>Age: {{ Member.age }}</p>
-<p>Phone: {{ Member.phone }}</p>
+<p>MemberID: {{ mymember.memberid }}</p>
+<p>Fullname: {{ mymember.fullname }}</p>
+<p>Email: {{ mymember.email }}</p>
+<p>Phone: {{ mymember.phone }}</p>
+<p>IDNumber: {{ mymember.idnumber }}</p>
+<p>BoardRegNo: {{ mymember.boardregno }}</p>
+<p>Designation: {{ mymember.designation }}</p>
+<p>SubSpecialization: {{ mymember.subspecialization }}</p>
+<p>Workstation: {{ mymember.workstation }}</p>
+<p>Affiliation: {{ mymember.affiliation }}</p>
+<p>PostalAddress: {{ mymember.postaladdress }}</p>
+<p>PostalCode: {{ mymember.postalcode }}</p>
+<p>DateRegistration: {{ mymember.dateregistration }}</p>
+<p>TownorCity: {{ mymember.townorcity }}</p>
+<p>BackupEmail: {{ mymember.backupemail }}</p>
+<p>Approved: {{ mymember.approved }}</p>
+<p>Status: {{ mymember.status }}</p>
+<p>Roles: {{ mymember.roles }}</p>
 
-<p>Back to <a href="/members">Members</a></p>
+<p>Back to <a href="/members">Member</a></p>
   
 {% endblock %}

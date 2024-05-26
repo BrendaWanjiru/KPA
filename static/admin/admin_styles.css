@@ -1,0 +1,77 @@
+/* Custom CSS for Django Admin Member List */
+
+/* Styling the table */
+#content table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #content table th,
+  #content table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Alternate row background color */
+  #content table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Hover effect on rows */
+  #content table tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Styling the header */
+  #content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling the filter input */
+  #changelist-filter input[type="text"] {
+    width: 200px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Styling the action dropdown */
+  #changelist-form #action-toggle {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Styling the "Go" button */
+  #changelist-form .button {
+    padding: 6px 12px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Styling the "Add member" button */
+  #content .addlink {
+    padding: 6px 12px;
+    border: 1px solid #28a745;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Styling the "Delete selected members" button */
+  #content .deletelink {
+    padding: 6px 12px;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+  }

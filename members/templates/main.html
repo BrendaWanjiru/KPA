@@ -1,19 +1,397 @@
 {% extends "master.html" %}
 
 {% block title %}
-  KPA - List of all members
+  KPA
 {% endblock %}
 
 
 {% block content %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .logo {
+            width: 50px; 
+            height: auto;
+            margin-right: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-start">
+            <img src="data:image/jpeg;base64,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" alt="Logo" class="logo">
+            <h1 class="mb-0">KPA</h1>
+        </div>
+    </div>
+</body>
+</html>
 
-  <p><a href="/">HOME</a></p>
 
-  <h1>Members</h1>
-  
-  <ul>
-    {% for x in members %}
-      <li><a href="details/{{ x.id }}">{{ x.fullname }}</a></li>
-    {% endfor %}
-  </ul>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "300px";
+        document.getElementById("main").style.marginLeft = "300px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+
+    
+
+    <style>
+        .logo {
+            width: 200px; 
+            height: auto;
+            margin-right: 100px; 
+        }
+        .about-us-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            text-align: center;
+            margin-top: 20px;
+        }
+      
+
+      #main {
+        transition: margin-left 0.5s;
+        padding: 16px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+
+      .example input{
+        width: 400px;
+        border-radius: 20px;
+        padding: 5px;
+      }
+
+      ul.no-bullets {
+        list-style-type: none;
+      }
+
+      /* Ensure the d-flex and justify-content-center from Bootstrap work as expected */
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Position the absolute positioned element */
+.position-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Style the input field */
+#new-value {
+  margin-right: 10px; /* Space between input and select */
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the select field */
+#field-select {
+  margin-right: 10px; /* Space between select and button */
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the button */
+#update-button {
+  padding: 2px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Ensure proper spacing within the parent div */
+.d-flex > * {
+  margin: 5px;
+}
+
+/* Optional: Add hover effects to the button */
+#update-button:hover {
+  background-color: #0056b3; /* Darker shade of primary color */
+}
+
+/* Optional: Focus styles for better accessibility */
+#new-value:focus, #field-select:focus, #update-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #80bdff;
+}
+</style>
+  </head>
+
+  <body>
+    <!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Centered</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar-nav {
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+        .navbar-collapse {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .navbar-collapse > .navbar-nav {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Kenya Paediatric Association</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Events</a>
+              </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Membership
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="admin">Member Login</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="add_member">Register/Apply</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">  
+                  <a class="nav-link dropdown-toggle" href="gallery" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Gallery
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="admin">2023</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="add_member">2024</a>
+              </div>
+                </li>
+            </ul>
+            <form class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+    <hr />
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Update Profile</title>
+</head>
+<body>
+<main id="main">
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 60rem">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h2 id="admin-title">KPA/000- ADMIN</h2>
+                    <!-- Input fields and button to update values -->
+<div class="d-flex justify-content-center">
+  <div class="position-absolute top-0 end-0"></div>
+    <input type="text" id="new-value" placeholder="Enter new value">
+    <select id="field-select">
+        <option value="member-id">MemberID</option>
+        <option value="fullname">Fullname</option>
+        <option value="email">Email</option>
+        <option value="phone">Phone</option>
+        <option value="id-number">ID Number</option>
+        <option value="board-reg-no">Board Reg No</option>
+        <option value="designation">Designation</option>
+        <option value="sub-specialization">Sub Specialization</option>
+        <option value="workstation">Workstation</option>
+        <option value="affiliation">Affiliation</option>
+        <option value="postal-address">Postal Address</option>
+        <option value="postal-code">Postal Code</option>
+        <option value="town-city">Town / City</option>
+        <option value="date-registration">Date Registration</option>
+        <option value="backup-email">Backup Email</option>
+        <option value="approved">Approved</option>
+        <option value="status">Status</option>
+        <option value="roles">Roles</option>
+    </select>
+    <button type="button" class="btn btn-primary" id="update-button">Update</button>
+</div>
+                </div>
+                <div class="container text-left">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <ul class="no-bullets">
+                                <li id="member-id"><span class="fw-bold">MemberID</span> - KPA/123456</li>
+                                <li id="fullname"><span class="fw-bold">Fullname</span> - John Doe</li>
+                                <li id="email"><span class="fw-bold">Email</span> - john.doe@example.com</li>
+                                <li id="phone"><span class="fw-bold">Phone</span> - 123-456-7890</li>
+                                <li id="id-number"><span class="fw-bold">ID Number</span> - 123456789</li>
+                                <li id="board-reg-no"><span class="fw-bold">Board Reg No</span> - 987654321</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul class="no-bullets">
+                                <li id="designation"><span class="fw-bold">Designation</span> - Manager</li>
+                                <li id="sub-specialization"><span class="fw-bold">Sub Specialization</span> - IT</li>
+                                <li id="workstation"><span class="fw-bold">Workstation</span> - New York</li>
+                                <li id="affiliation"><span class="fw-bold">Affiliation</span> - ABC Corp</li>
+                                <li id="postal-address"><span class="fw-bold">Postal Address</span> - 123 Main St</li>
+                                <li id="postal-code"><span class="fw-bold">Postal Code</span> - 10001</li>
+                                <li id="town-city"><span class="fw-bold">Town / City</span> - New York</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul class="no-bullets">
+                                <li id="date-registration"><span class="fw-bold">Date Registration</span> - 2023-01-01</li>
+                                <li id="backup-email"><span class="fw-bold">Backup Email</span> - backup@example.com</li>
+                                <li id="approved"><span class="fw-bold">Approved</span> - 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check2-square" viewBox="0 0 16 16">
+                                        <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+                                        <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
+                                    </svg>
+                                </li>
+                                <li id="status"><span class="fw-bold">Status</span> - Active</li>
+                                <li id="roles"><span class="fw-bold">Roles</span> - Admin</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.getElementById("update-button").onclick = function() {
+        var newValue = document.getElementById("new-value").value;
+        var fieldId = document.getElementById("field-select").value;
+
+        if (newValue === "") {
+            alert("Please enter a new value.");
+            return;
+        }
+
+        var fieldElement = document.getElementById(fieldId);
+        if (fieldElement) {
+            var parts = fieldElement.innerHTML.split(" - ");
+            fieldElement.innerHTML = parts[0] + " - " + newValue;
+        } else {
+            alert("Field not found.");
+        }
+    }
+</script>
+
+</body>
+</html>
+  <div class="mt-5 text-center">
+    <h2 class="text-primary">Welcome to Kenya Paediatric Association</h2>
+  </br>
+  <div class="about-us-section">
+    <img src="data:image/jpeg;base64,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" alt="Logo" class="logo">
+    <div>
+    <p>
+        The Kenya Paediatric Association (KPA) is a professional body dedicated to the health and well-being of children in Kenya. <br/>KPA's mission is to promote the health and well-being of all children in Kenya through the advancement of <br/>paediatric education, research, and clinical practice. KPA provides a platform for paediatricians to share knowledge, <br/>collaborate on research, and advocate for policies that benefit children’s health.
+    </p>
+    <p>
+        KPA organizes regular seminars, workshops, and conferences to keep paediatricians updated on the latest advancements in <br/>child healthcare. The association also works closely with other health organizations and the government to ensure that <br/>children in Kenya have access to the best possible healthcare services.
+    <br/>
+      </p>
+    <div class="text-center">
+        <a href="about_us.html" class="btn btn-primary">About Us</a>
+    </div>
+
+<h2 class="text-center">Events/Recent Seminars</h2>
+    <br/>
+    <div class="d-flex justify-content-center">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="https://images.pexels.com/photos/3259629/pexels-photo-3259629.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">
+                  <h4>Neonatology</h4> <br><h3 class="text-primary">Prematurity: Management, Complications and prevention</h3>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="https://images.pexels.com/photos/6865168/pexels-photo-6865168.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">
+                  <h4>Infectious Diseases</h4> <br><h3 class="text-primary">World Pneumonia Day: Your Role in 
+                  Ending the Silent Epidemic Webinar</h3>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img src="https://images.pexels.com/photos/7088526/pexels-photo-7088526.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">
+                  <h4>Gastroenterology</h4> <br><h3 class="text-primary">Management of Acute and Chronic Diarrhoea</h3>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+  </body>
+</html>
 {% endblock %}

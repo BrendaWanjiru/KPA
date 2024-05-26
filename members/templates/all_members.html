@@ -1,16 +1,19 @@
 {% extends "master.html" %}
 
 {% block title %}
-KPA - List of all members
+  KPA - List of all members
 {% endblock %}
 
 
 {% block content %}
+
+  <p><a href="/">HOME</a></p>
+
   <h1>Members</h1>
   
   <ul>
-    {% for x in members %}
-      <li><a href="details/{{ x.id }}">{{ x.fullname }}</a></li>
+    {% for x in mymembers %}
+      <li><a href="details/{{ x.id }}">{{ x.MemberID }}</a></li>
     {% endfor %}
   </ul>
 {% endblock %}
