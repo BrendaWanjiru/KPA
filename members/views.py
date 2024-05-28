@@ -98,3 +98,7 @@ def testing(request):
     'mymembers' : mydata,   
   }
   return HttpResponse(template.render(context, request))
+
+def events(request):
+    members = Member.objects.all()
+    return render(request, 'events.html')

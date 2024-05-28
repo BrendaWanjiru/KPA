@@ -1,0 +1,178 @@
+{% extends 'admin/index.html' %}
+
+{% block content %}
+  <h1>
+    Hello, {{ world }}!
+  </h1>
+  {{ block.super }}
+
+
+  <style>
+    #branding h1, #branding h1 a:link, #branding h1 a:visited {
+        color: #e0f7fa; /* Light blue */
+        font-weight: bold;
+    }
+    #branding h1 {
+        font-size: x-large;
+        font-weight: bold;
+    }
+    h1 {
+        color: #0074D9; /* Light blue */
+        font-weight: bold;
+    }
+    body {
+        background: #B0C4DE; /* Light blue */
+        /* background-image: url("https://wallpapercave.com/wp/wp2508260.jpg"); */
+        /* background-image: url(../images/Admin.jpg); */
+    }
+    #header {
+        background: #0074D9; /* Medium blue */
+        color: #fff;
+        height: 78px;
+    }
+    #header a:link, #header a:visited {
+        color: #fff;
+    }
+    #header a:hover {
+        color: #fff;
+    }
+    div.breadcrumbs {
+        background: #001f3f; /* Dark blue */
+    }
+    div.breadcrumbs a.active {
+        color: #7FDBFF; /* Light cyan */
+        !important;
+        font-weight: 300;
+    }
+    div.breadcrumbs a:focus, div.breadcrumbs a:hover {
+        color: #7FDBFF; /* Light cyan */
+        !important;
+        font-weight: 300;
+    }
+    .select2-container--admin-autocomplete .select2-results__option--highlighted[aria-selected] {
+        background-color: #001f3f; /* Dark blue */
+    }
+    .paginator a:link, .paginator a:visited {
+        background: #001f3f; /* Dark blue */
+    }
+    .button, input[type=submit], input[type=button], .submit-row input, a.button {
+        background: #0074D9; /* Medium blue */
+    }
+    .button:hover, input[type=submit]:hover, input[type=button]:hover {
+        background: #005fa3; /* Slightly darker blue */
+    }
+    .module caption {
+        background: #0074D9; /* Medium blue */
+    }
+    .module p {
+        background: #0074D9; /* Medium blue */
+    }
+    .module h2, .inline-group h2 {
+        background: #0074D9; /* Medium blue */
+    }
+    #user-tools a:focus, #user-tools a:hover {
+        border: 0;
+        color: #b0e0e6; /* Powder blue */
+    }
+    .selector-chosen h2 {
+        background: #0074D9 !important; /* Medium blue */
+    }
+    .calendar td.selected a {
+        background: #0074D9 !important; /* Medium blue */
+    }
+    .calendar td a:focus, .timelist a:focus,
+    .calendar td a:hover, .timelist a:hover {
+        background: #0074D9 !important; /* Medium blue */
+    }
+    #changelist-filter li.selected a {
+        color: #444;
+    }
+    fieldset.collapsed .collapse-toggle {
+        color: #444;
+    }
+    a:link, a:visited {
+        color: #7FDBFF; /* Light cyan */
+    }
+    a:focus, a:hover {
+        color: #ADD8E6; /* Light blue */
+    }
+    table thead th.sorted .sortoptions a.sortremove:focus:after,
+    table thead th.sorted .sortoptions a.sortremove:hover:after {
+        color: #444;
+    }
+    a.active.selector-chooseall:focus, a.active.selector-clearall:focus,
+    a.active.selector-chooseall:hover, a.active.selector-clearall:hover {
+        color: #ADD8E6; /* Light blue */
+    }
+    .calendar td a:active, .timelist a:active {
+        background: #444;
+    }
+    .change-list ul.toplinks .date-back a:focus,
+    .change-list ul.toplinks .date-back a:hover {
+        color: #222;
+    }
+    .paginator a.showall:focus, .paginator a.showall:hover {
+        color: #222;
+    }
+    .paginator a:focus, .paginator a:hover {
+        background: #222;
+    }
+    #changelist-filter a:focus, #changelist-filter a:hover,
+    #changelist-filter li.selected a:focus,
+    #changelist-filter li.selected a:hover {
+        color: #222;
+    }
+    .calendar td a:active, .timelist a:active {
+        background: #001f3f; /* Dark blue */
+        color: white;
+    }
+    .calendar caption, .calendarbox h2 {
+        background: #ADD8E6; /* Light blue */
+    }
+    .button.default, input[type=submit].default, .submit-row input.default {
+        background: #001f3f; /* Dark blue */
+    }
+    .button.default:hover, input[type=submit].default:hover {
+        background: #003366; /* Darker blue */
+    }
+    .select2-container--admin-autocomplete .select2-results__option--highlighted[aria-selected] {
+        background-color: #001f3f; /* Dark blue */
+    }
+    .button.default, input[type=submit].default, .submit-row input.default {
+        background: #001f3f; /* Dark blue */
+    }
+    .object-tools a:focus, .object-tools a:hover {
+        background-color: #001f3f; /* Dark blue */
+    }
+    input[type=file]::-webkit-file-upload-button:hover {
+        border: 0;
+        background: #001f3f; /* Dark blue */
+    }
+    #changelist-filter {
+        top: -250px;
+        right: 15px;
+    }
+    #changelist-filter h2 {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    p {
+        color: #E0FFFF; /* Light cyan */
+    }
+    #content h1 {
+        text-align: center;
+        border: 2px solid #fff;
+        border-radius: 32px;
+    }
+    h2, li {
+        color: #E0FFFF; /* Light cyan */
+    }
+    .addlink, .changelink, .deletelink {
+        color: #001f3f; /* Dark blue */
+    }
+    div .datetime {
+        background: #fff;
+    }
+    
+  </style>
+{% endblock %}

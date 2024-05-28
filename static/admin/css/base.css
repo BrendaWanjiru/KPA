@@ -5,15 +5,15 @@
 /* VARIABLE DEFINITIONS */
 html[data-theme="light"],
 :root {
-    --primary: #79aec8;
-    --secondary: #417690;
+    --primary: #00ddec;
+    --secondary: #082cf5;
     --accent: #f5dd5d;
     --primary-fg: #fff;
 
     --body-fg: #333;
     --body-bg: #fff;
-    --body-quiet-color: #666;
-    --body-loud-color: #000;
+    --body-quiet-color: #112979;
+    --body-loud-color: #34e9ac;
 
     --header-color: #ffc;
     --header-branding-color: var(--accent);

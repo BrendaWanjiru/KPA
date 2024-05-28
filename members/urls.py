@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from .views import upload_image, gallery, delete_image 
-from .views import add_member, edit_member, delete_member
+from .views import add_member, edit_member, delete_member, events
 
 
 urlpatterns = [
@@ -15,4 +15,5 @@ urlpatterns = [
     path('add/', views.add_member, name='add_member'),
     path('edit/<int:memberid>/', views.edit_member, name='edit_member'),
     path('delete/<int:memberid>/', views.delete_member, name='delete_member'),
+    path('events/', views.events, name='events')
 ]
