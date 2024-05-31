@@ -1,14 +1,32 @@
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
-from .models import Member
-from django.shortcuts import render, redirect
-from .forms import ImageForm
+from .forms import ImageForm, MemberForm
 from .models import Image
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from .forms import MemberForm
-from django.http import JsonResponse
+from .models import Member
+
+# views.py
+# views.py
+def about_us_view(request):
+    members = [
+        {
+            'photo': '',
+            'name': 'John Doe',
+            'position': 'Developer',
+            'bio': 'John is a full-stack developer with 5 years of experience.'
+        },
+        {
+            'photo': 'static/images/IMG_6473.jpeg',
+            'name': 'Jane Smith',
+            'position': 'Designer',
+            'bio': 'Jane is a creative designer who specializes in UI/UX.'
+        },
+        # Add more members as needed
+    ]
+    print(members)  # Debugging line
+    return render(request, 'about_us.html', {'members': members})
+
+
 
 
 def upload_image(request):
@@ -24,6 +42,7 @@ def upload_image(request):
 def gallery(request):
     images = Image.objects.all()
     return render(request, 'gallery.html', {'images': images})
+
 def delete_image(request, image_id):
     image = get_object_or_404(Image, id=image_id)
     if request.method == 'POST':
@@ -31,74 +50,54 @@ def delete_image(request, image_id):
         return redirect('gallery')
     return render(request, 'delete_image.html', {'image': image})
 
-def member_form(request):
-    form = MemberForm()
-    return render(request, "members/member_form.html", {'form': form,})
-
-def home(request):
-    members = Member.objects.all()
-    return render(request, 'main.html', {'members': members})
-
 def add_member(request):
     if request.method == 'POST':
         form = MemberForm(request.POST)
         if form.is_valid():
-            return render(request, "main.html", {'form': form,})
+            form.save()
+            return redirect('main')
     else:
         form = MemberForm()
     return render(request, "add_member.html", {'form': form})
 
-def main(request):
-    members = Member.objects.all()
-    return render(request, 'main.html')
-
-def edit_member(request):
+def edit_member(request, id):
     mymember = get_object_or_404(Member, id=id)
     if request.method == 'POST':
-        form = MemberForm(request.POST, instance=members)
+        form = MemberForm(request.POST, instance=mymember)
         if form.is_valid():
             form.save()
             return redirect('main')
     else:
-        form = MemberForm(instance=members)
-    return render(request, 'edit_member.html')
-
+        form = MemberForm(instance=mymember)
+    return render(request, 'edit_member.html', {'form': form})
 
 def delete_member(request, member_id):
     mymember = get_object_or_404(Member, id=member_id)
     if request.method == 'POST':
-        members.delete()
+        mymember.delete()
         return redirect('main')
-    return render(request, 'delete_member.html', {'members': members})
+    return render(request, 'delete_member.html', {'member': mymember})
 
 def members(request):
-  mymembers = Member.objects.all().values()
-  template = loader.get_template('all_members.html')
-  context = {
-    'mymembers': mymembers,
-  }
-  return HttpResponse(template.render(context, request))
-  
+    mymembers = Member.objects.all().values()
+    return render(request, 'all_members.html', {'mymembers': mymembers})
+
 def details(request, id):
-  mymember = Member.objects.get(id=id)
-  template = loader.get_template('details.html')
-  context = {
-    'mymember': mymember,
-  }
-  return HttpResponse(template.render(context, request))
-  
+    mymember = get_object_or_404(Member, id=id)
+    return render(request, 'details.html', {'mymember': mymember})
+
 def main(request):
-  template = loader.get_template('main.html')
-  return HttpResponse(template.render())
+    members = Member.objects.all()
+    return render(request, 'main.html', {'members': members})
 
 def testing(request):
-  mydata = Member.objects.all()
-  template = loader.get_template('template.html')
-  context = {
-    'mymembers' : mydata,   
-  }
-  return HttpResponse(template.render(context, request))
+    mymembers = Member.objects.all()
+    return render(request, 'template.html', {'mymembers': mymembers})
 
 def events(request):
     members = Member.objects.all()
-    return render(request, 'events.html')
+    return render(request, 'events.html', {'members': members})
+
+def about_us(request):
+    members = Member.objects.all()
+    return render(request, 'about_us.html', {'members': members})

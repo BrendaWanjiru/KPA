@@ -2,6 +2,14 @@ from django.db import models
 from datetime import datetime
 from django.db import migrations, models
 # Create your models here.
+from django.db import models
+
+class Image(models.Model):
+    name = models.CharField(max_length=250)
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.name
 class Position(models.Model):
     title = models.CharField(max_length=300)
     
